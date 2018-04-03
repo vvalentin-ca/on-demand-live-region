@@ -16,7 +16,7 @@ Récupérez simplement la [version minifiée](on-demand-live-region.min.js) ou i
 npm i on-demand-live-region
 ```
 
-## Paramètres objet
+## Paramètres
 
 * `level` – le niveau de priorité de votre <i lang="en">live region</i> (par défaut : `polite`) ;
 * `parent` – l’élément auquel sera ajouté votre <i lang="en">live region</i> (par défaut : `body`) ;
