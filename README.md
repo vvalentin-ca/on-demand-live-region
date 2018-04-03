@@ -1,4 +1,4 @@
-# <i lang="en">live regions</i> à la demande
+# <i lang="en">Live regions</i> à la demande
 
 Un petit module pour générer à la demande des annonces dans les lecteurs d’écran, sans changement visuel dans l’interface. Initialiser et utiliser une <i lang="en">live region</i> est aussi simple que :
 
