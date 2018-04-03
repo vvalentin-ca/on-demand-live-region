@@ -1,13 +1,13 @@
-/* global define */
+/* Définitions globales */
 
 (function (global) {
   'use strict'
 
-  // Constructor
+  // Constructeur
   function OnDemandLiveRegion (options) {
     options = options || {}
 
-    // The default settings for the module.
+    // Les paramètres par défaut du module
     this.settings = {
       level: 'polite',
       parent: 'body',
@@ -15,46 +15,46 @@
       delay: 0
     }
 
-    // Overwrite defaults where they are provided in options
+    // Remplacer les valeurs par défaut lorsqu’elles sont fournies dans les options
     for (var setting in options) {
       if (options.hasOwnProperty(setting)) {
         this.settings[setting] = options[setting]
       }
     }
 
-    // Cast parent as DOM node
+    // Convertir le parent comme un nœud DOM
     this.settings.parent = document.querySelector(this.settings.parent)
   }
 
-  // 'Say' method
+  // 'Say' méthode
   OnDemandLiveRegion.prototype.say = function (thingToSay, delay) {
-    // Get rid of old live region if it exists
+    // Se débarrasser de l’ancienne _live region_ si elle existe
     var oldRegion = this.settings.parent.querySelector('[id^="' + this.settings.idPrefix + '"]') || false
     if (oldRegion) {
       this.settings.parent.removeChild(oldRegion)
     }
 
-    // Did an override level get set?
+    // Est-ce qu’un délai a été réglé ?
     delay = delay || this.settings.delay
 
-    // Create fresh live region
+    // Créer une nouvelle _live region_
     this.currentRegion = document.createElement('span')
     this.currentRegion.id = this.settings.idPrefix + Math.floor(Math.random() * 10000)
 
-    // Determine redundant role
+    // Déterminer le niveau de priorité
     var role = this.settings.level !== 'assertive' ? 'status' : 'alert'
 
-    // Add role and aria-live attribution
+    // Attribuer `role` et `aria-live`
     this.currentRegion.setAttribute('aria-live', this.settings.level)
     this.currentRegion.setAttribute('role', role)
 
-    // Hide live region element, but not from assistive technologies
+    // Cacher l’élément avec la _live region_, mais pas aux technologies d’assistance
     this.currentRegion.setAttribute('style', 'clip: rect(1px, 1px, 1px, 1px); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px')
 
-    // Add live region to its designated parent
+    // Ajouter la _live region_ à son parent
     this.settings.parent.appendChild(this.currentRegion)
 
-    // Populate live region to trigger it
+    // Peupler la _live region_ pour l’activer
     window.setTimeout(function () {
       this.currentRegion.textContent = thingToSay
     }.bind(this), delay)
@@ -62,7 +62,7 @@
     return this
   }
 
-  // Export OnDemandLiveRegion
+  // Exporter OnDemandLiveRegion
   if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = OnDemandLiveRegion
   } else if (typeof define === 'function' && define.amd) {
@@ -70,7 +70,7 @@
       return OnDemandLiveRegion
     })
   } else if (typeof global === 'object') {
-    // attach to window
+    // Attacher l’évènement à la fenêtre du navigateur
     global.OnDemandLiveRegion = OnDemandLiveRegion
   }
 }(this))
