@@ -1,29 +1,29 @@
-# On Demand Live Regions
+# Live regions à la demande
 
-A tiny module for making screen readers announce text on demand, without a visual change to the interface. Initializing and using the live region is as simple as:
+Un petit module pour générer à la demande des annonces dans les lecteurs d’écran, sans changement visuel dans l’interface. Initialiser et utiliser une <i lang="en">live region</i> est aussi simple que :
 
 ```js
 const liveRegion = new OnDemandLiveRegion()
 
-liveRegion.say('Hello World!')
+liveRegion.say('Bonjour tout le monde')
 ```
 
 ## Installation
 
-Just grab the [minified version](on-demand-live-region.min.js) or install from NPM:
+Récupérez simplement la [version minifiée](on-demand-live-region.min.js) ou installez-la à partir de <abbr>N.P.M.</abbr> :
 
 ```
 npm i on-demand-live-region
 ```
 
-## Settings object
+## Paramètres objet
 
-* `level` — the live region level (default: `polite`)
-* `parent` — the element to which the live region will be appended (default: `body`)
-* `idPrefix` — the prefix for the unique `id` generated for the live region (default: `live-region-`)
-* `delay` — the delay in milliseconds before the phrase is announced (default: `0`)
+* `level` – le niveau de priorité de votre <i lang="en">live region</i> (par défaut : `polite`) ;
+* `parent` – l’élément auquel sera ajouté votre <i lang="en">live region</i> (par défaut : `body`) ;
+* `idPrefix` – le préfixe pour l’identifiant `id` généré attaché à la <i lang="en">live region</i> (par défaut : `live-region-`) ;
+* `delay` – le délai en millisecondes avant que la phrase soit prononcée (par défaut : `0`).
 
-## Assertive example with a half second delay
+## Exemple avec priorité assertive et délai d’une demi-seconde
 
 ```js
 const liveRegionDelayed = new OnDemandLiveRegion({
@@ -31,24 +31,24 @@ const liveRegionDelayed = new OnDemandLiveRegion({
   delay: 500
 })
 
-liveRegionDelayed.say('Hello World! (sorry, delayed reaction)')
+liveRegionDelayed.say('Salut tout le monde ! (Désolé, je réagis un peu tard.)')
 ```
 
-You can override the delay setting in a second argument when calling `say`:
+Vous pouvez surcharger le paramètre de délai avec un second argument quand vous appelez `say` :
 
 ```js
-liveRegionDelayed.say('Hello World! (sorry, delayed reaction)', 1000)
+liveRegionDelayed.say('Salut tout le monde ! (Désolé, je réagis un peu tard.)', 1000)
 ```
 
-## Say it over and over
+## Dites-le encore et encore
 
-Each time you use the `say` method, the extant live region (if it exists) is destroyed and a new one created. This means you can reliably make the same announcement multiple times. This is not guaranteed in other implementations, where a persistent live region is repopulated.
+Chaque fois que vous utiliserez la méthode `say`, la <i lang="en">live region</i> existante (si elle existe bien) sera détruite et une nouvelle sera créée. Cela signifie que vous pouvez faire la même annonce plusieurs fois de manière fiable. Ce qui n’est pas garanti dans d’autres implémentations, où la même <i lang="en">live region</i> est repeuplée.
 
-## Tested in
+## Testé dans
 
-* Safari with VoiceOver
-* Chrome with VoiceOver
-* IE11 with JAWS
-* Chrome with JAWS
-* Firefox with NVDA
-* Chrome with ChromeVox
+* Safari avec <i lang="en">VoiceOver</i> ;
+* Chrome avec <i lang="en">VoiceOver</i> ;
+* IE11 avec <i lang="en">JAWS</i> ;
+* Chrome avec <i lang="en">JAWS</i> ;
+* Firefox avec <abbr>N.V.D.A.</abbr> ;
+* Chrome avec <i lang="en">ChromeVox</i>.
