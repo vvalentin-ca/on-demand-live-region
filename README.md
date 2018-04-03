@@ -37,7 +37,7 @@ liveRegionDelayed.say('Bonjour tout le monde ! (Désolé, je réagis un peu tar
 Vous pouvez surcharger le paramètre de délai avec un second argument quand vous appelez `say` :
 
 ```js
-liveRegionDelayed.say('Salut tout le monde ! (Désolé, je réagis un peu tard.)', 1000)
+liveRegionDelayed.say('Bonjour tout le monde ! (Désolé, je réagis un peu tard.)', 1000)
 ```
 
 ## Dites-le encore et encore
