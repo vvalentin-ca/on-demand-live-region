@@ -40,9 +40,9 @@
     </title>
   </head>
   <body>
-    <p>Chaque fois que vous cliquez sur ce bouton, il devait annoncer « Salut tout le monde » :</p>
+    <p>Chaque fois que vous cliquez sur ce bouton, il devait annoncer « Salut tout le monde ! » :</p>
     <button id="hello">Test 1</button>
-    <p>Chaque fois que vous cliquez sur ce bouton, il devait annoncer « Au revoir tout le monde » après un délai d’une seconde :</p>
+    <p>Chaque fois que vous cliquez sur ce bouton, il devait annoncer « Au revoir tout le monde ! » après un délai d’une seconde :</p>
     <button id="bye">Test 2</button>
     <script src="../on-demand-live-region.js"></script>
     <script>
@@ -51,14 +51,14 @@
 
       // Annoncer au clic
       document.getElementById('hello').addEventListener('click', function () {
-        eg1.say('Hello World!', 'assertive')
+        eg1.say('Salut tout le monde !', 'assertive')
       })
 
       var eg2 = new OnDemandLiveRegion({delay: 1000})
 
       // Annoncer au clic
       document.getElementById('bye').addEventListener('click', function () {
-        eg2.say('GoodBye World!')
+        eg2.say('Au revoir tout le monde !')
       })
     </script>
   </body>
