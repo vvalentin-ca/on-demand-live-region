@@ -31,7 +31,7 @@ const liveRegionDelayed = new OnDemandLiveRegion({
   delay: 500
 })
 
-liveRegionDelayed.say('Salut tout le monde ! (Désolé, je réagis un peu tard.)')
+liveRegionDelayed.say('Bonjour tout le monde ! (Désolé, je réagis un peu tard.)')
 ```
 
 Vous pouvez surcharger le paramètre de délai avec un second argument quand vous appelez `say` :
